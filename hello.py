@@ -1,5 +1,11 @@
 from flask import Flask, redirect, url_for, render_template
 from flask_navigation import Navigation
+import collections
+try:
+    from collections import abc
+    collections.MutableSequence = abc.MutableSequence
+except:
+    pass
 
 app = Flask(__name__)
 nav = Navigation(app)
