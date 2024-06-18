@@ -1,32 +1,33 @@
 from flask import Flask, redirect, url_for, render_template
-from flask_navigation import Navigation
-import collections
-try:
-    from collections import abc
-    collections.MutableSequence = abc.MutableSequence
-except:
-    pass
 
 app = Flask(__name__)
-nav = Navigation(app)
 
-nav.Bar('top', [
-    nav.Item('Home', 'index'),
-    nav.Item('My Account', 'my_account'),
-    nav.Item('About MULe', 'about'),
-    nav.Item('Contact the Team', 'contact'),
-    nav.Item('My Signup', 'signup'),
-    nav.Item('Practical Info', 'practical_info'),
-    nav.Item('F.A.Q','FAQ'),
-])
+@app.context_processor 
+def inject_dict_for_all_templates():
+    """ Build the navbar and pass this to Jinja for every route
+    """
+    # Build the Navigation Bar
+    nav = [
+    {"text": "Homepage", "url": url_for('index')},
+    {"text": "My Account", "url": url_for('account')},
+    {"text": "About MULe", "url": url_for('about')},
+    {"text": "Contact", "url": url_for('contact')},
+    {"text": "My Signup", "url": url_for('signup')},
+    {"text": "Practical Info", "url": url_for('practical_info')},
+    {"text": "FAQ", "url": url_for('FAQ')},
+    ]
+
+    return dict(navbar = nav)
+
+
 
 @app.route("/")
-def home():
+def index():
     return render_template("index.html")
 
 @app.route('/myaccount')
 def account():
-    return render_template('account.html')
+    return render_template('my_account.html')
 
 @app.route('/about')
 def about():
@@ -47,18 +48,6 @@ def practical_info():
 @app.route('/faq')
 def FAQ():
     return render_template('FAQ.html')
-
-@app.route('/navpage') 
-def navpage(): 
-    return render_template('navpage.html') 
-
-@app.route("/admin")
-def admin():
-    return redirect(url_for("user", name="Admin"))
-
-@app.route("/<name>")
-def user(name):
-    return f"Hello {name}!"
 
 if __name__ == "__main__":
     app.run
