@@ -79,7 +79,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project was created to ease the signup and management of 
+This project was created to ease the signup and management of all future danish Mensa Youth camps.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,27 +102,29 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* Python  
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Python >= 3.10 - [Download & Install Python](https://www.python.org/downloads/). You need python since this project is built in Python.
   ```sh
-  npm install npm@latest -g
+  python -m venv .venv
   ```
 
-### Installation
+### Installing and running
 
-1. Clone the repo
+1. Clone the repository to your local machine:
    ```sh
    git clone https://github.com/smeidigung/MULe.git
    ```
-3. Install packages from the requirements file
+2. Start your virtual environment from project folder:
+  ```sh
+  .venv\\Scripts\\activate
+  ```
+3. Install packages from the requirements file:
    ```sh
    pip install -r /path/to/requirements.txt
    ```
-4. Enter your API in `config.js`
-   ```python
-   const API_KEY = 'ENTER YOUR API';
-   ```
+4. Run the main file:
+  ```sh
+  python -m flask --app hello run
+  ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
