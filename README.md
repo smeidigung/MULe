@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/smeidigung/MULe">
-    <img src="/static/images/MULe_banner.jpg" alt="Logo" height="120">
+    <img src="/static/images/MULe_banner.jpg" alt="Logo" width="400">
   </a>
 
 <h3 align="center">MULe Website</h3>
@@ -103,25 +103,24 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 * Python >= 3.10 - [Download & Install Python](https://www.python.org/downloads/). You need python since this project is built in Python.
-  ```sh
-  python -m venv .venv
-  ```
 
 ### Installing and running
 
-1. Clone the repository to your local machine:
+1. Fork the repository to your own GH profile
+
+2. Clone the repository to your local machine:
    ```sh
    git clone https://github.com/smeidigung/MULe.git
    ```
-2. Start your virtual environment from project folder:
+3. Start your virtual environment from project folder:
   ```sh
   .venv\\Scripts\\activate
   ```
-3. Install packages from the requirements file:
+4. Install packages from the requirements file:
    ```sh
    pip install -r /path/to/requirements.txt
    ```
-4. Run the main file:
+5. Run the main file:
   ```sh
   python -m flask --app hello run
   ```
@@ -189,8 +188,8 @@ Project Link: [https://github.com/smeidigung/MULe](https://github.com/smeidigung
 [stars-url]: https://github.com/smeidigung/MULe/stargazers
 [issues-shield]: https://img.shields.io/github/issues/smeidigung/MULe.svg?style=for-the-badge
 [issues-url]: https://github.com/smeidigung/MULe/issues
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://linkedin.com/in/eriksmedegaard
+[product-screenshot]: images/frontpage.jpg
 [Flask.com]: https://flask.palletsprojects.com/_images/flask-horizontal.png
 [Flask-url]: https://flask.palletsprojects.com/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
