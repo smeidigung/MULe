@@ -190,7 +190,7 @@ Project Link: [https://github.com/smeidigung/MULe](https://github.com/smeidigung
 [issues-url]: https://github.com/smeidigung/MULe/issues
 [linkedin-url]: https://linkedin.com/in/eriksmedegaard
 [product-screenshot]: images/frontpage.jpg
-[Flask.com]: https://flask.palletsprojects.com/_images/flask-horizontal.png
+[Flask.com]: static/images/flask_icon.png
 [Flask-url]: https://flask.palletsprojects.com/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
