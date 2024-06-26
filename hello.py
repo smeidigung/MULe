@@ -15,6 +15,7 @@ def inject_dict_for_all_templates():
     {"text": "My Signup", "url": url_for('signup')},
     {"text": "Practical Info", "url": url_for('practical_info')},
     {"text": "FAQ", "url": url_for('FAQ')},
+    #{"text": "User", "url": url_for('user')},
     ]
 
     return dict(navbar = nav)
@@ -49,8 +50,12 @@ def practical_info():
 def FAQ():
     return render_template('FAQ.html')
 
-if __name__ == "__main__":
-    app.run
+@app.route('/user/<name>')
+def user(name):
+    return render_template("user.html",username=name) 
+
+#if __name__ == "__main__":
+#    app.run
 
 #if __name__ == "__main__":
 #    app.run(host="0.0.0.0")
