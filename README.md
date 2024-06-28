@@ -65,11 +65,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -103,7 +100,7 @@ To get a local copy up and running follow these steps.
 
 * Python >= 3.10 - [Download & Install Python](https://www.python.org/downloads/). You need python since this project is built in Python.
 
-### Installing and running
+### Installation
 
 1. Fork the repository to your own GH profile
 
@@ -117,15 +114,17 @@ To get a local copy up and running follow these steps.
    ```
 4. Start your virtual environment:
   ```sh
-  .venv/Scripts/activate
+  source .venv/Scripts/activate
   ```
+  or for Unix systems
+  ```sh
+  source .venv/bin/activate
+  ```
+  
 5. Install packages from the requirements file:
    ```sh
    pip install -r requirements.txt
    ```
-  ```sh
-  python -m flask --app hello run
-  ```
 6. Set the flask variables:
   ```sh
   export FLASK_ENV=development
