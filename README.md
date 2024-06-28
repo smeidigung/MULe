@@ -22,7 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -98,7 +97,7 @@ This project was created to ease the signup and management of all future danish 
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
@@ -112,17 +111,30 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/smeidigung/MULe.git
    ```
-3. Start your virtual environment from project folder:
+3. Create a virtual environment from your bash terminal at the desired location:
   ```sh
-  .venv\\Scripts\\activate
-  ```
-4. Install packages from the requirements file:
-   ```sh
-   pip install -r /path/to/requirements.txt
+   python -m venv .venv
    ```
-5. Run the main file:
+4. Start your virtual environment:
+  ```sh
+  .venv/Scripts/activate
+  ```
+5. Install packages from the requirements file:
+   ```sh
+   pip install -r requirements.txt
+   ```
   ```sh
   python -m flask --app hello run
+  ```
+6. Set the flask variables:
+  ```sh
+  export FLASK_ENV=development
+  export FLASK_APP=hello.py
+  export DEBUG=1
+  ```
+7. Run the project:
+  ```sh
+  flask run
   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
