@@ -7,15 +7,19 @@
 {% else %}
     <h1>What's your name?</h1>
     <br/>
-    <form method="POST">
-        {{form.hidden_tag()}}
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
 
-        {{form.name.label(
-            class="form-label"
-        )}}
-        {{form.name(class="form-control")}}
+        {{ form.name.label() }}
+        {{ form.name() }}
+        <br>
+        {{ form.email.label() }}
+        {{ form.email() }}
         <br/>
-        {{form.submit(class="btn btn-secondary")}}
+        {{ form.password.label() }}
+        {{ form.password() }}
+        <br>
+        {{ form.submit }}
     </form>
 
  {% endif %}

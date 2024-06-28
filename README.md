@@ -128,7 +128,7 @@ To get a local copy up and running follow these steps.
 6. Set the flask variables:
   ```sh
   export FLASK_ENV=development
-  export FLASK_APP=hello.py
+  export FLASK_APP=main.py
   export DEBUG=1
   ```
 7. Run the project:

@@ -1,16 +1,10 @@
 from flask import Flask, redirect, url_for, render_template
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
-from wtforms.validators import DataRequired
 import secret
+import forms
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = secret.secret_key
-
-class NameForm(FlaskForm):
-    name = StringField("What's your name?",validators= [DataRequired()])
-    submit = SubmitField("Submit")
 
 
 #Navigation bar
@@ -72,14 +66,25 @@ def user(username):
 
 @app.route('/name', methods=['GET', 'POST'])
 def name():
-    name= None
-    form = NameForm()
+    name = None
+    email = None
+    password = None
+    form = forms.UserForm()
 
     if form.validate_on_submit():
         name = form.name.data
         form.name.data = ''
+
+        email = form.email.data
+        form.email.data = ''
+
+        password = form.password.data
+        form.password.data = ''
+
     return render_template('name.html',
         name = name,
+        email = email,
+        password = password,
         form = form)
 
 
