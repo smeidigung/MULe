@@ -158,7 +158,7 @@ To get a local copy up and running follow these steps.
 - [ ] About MULe subpage
 - [ ] Website goes live
 
-See the [open issues](https://github.com/smeidigung/MULe/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://trello.com/b/xuhzp9ku/mule-website) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
