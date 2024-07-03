@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template
 import secret
 import forms
+import sys
 
 app = Flask(__name__)
 
@@ -70,21 +71,24 @@ def name():
     email = None
     password = None
     form = forms.UserForm()
+    print("Test form",file=sys.stderr)
 
     if form.validate_on_submit():
         name = form.name.data
         form.name.data = ''
 
-        email = form.email.data
-        form.email.data = ''
+        #email = form.email.data
+        #form.email.data = ''
 
-        password = form.password.data
-        form.password.data = ''
+        #password = form.password.data
+        #form.password.data = ''
+        
+        print("Name: "+name,file=sys.stderr)
 
     return render_template('name.html',
         name = name,
-        email = email,
-        password = password,
+        #email = email,
+        #password = password,
         form = form)
 
 
