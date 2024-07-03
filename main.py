@@ -1,6 +1,14 @@
 from flask import Flask, redirect, url_for, render_template
+import secret
+import forms
+import sys
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = secret.secret_key
+
+
+#Navigation bar
 
 @app.context_processor 
 def inject_dict_for_all_templates():
@@ -15,11 +23,15 @@ def inject_dict_for_all_templates():
     {"text": "My Signup", "url": url_for('signup')},
     {"text": "Practical Info", "url": url_for('practical_info')},
     {"text": "FAQ", "url": url_for('FAQ')},
+    {"text": "My profile", "url": url_for('user',username="user.username")}, # TODO: make dynamic
+    {"text": "Name", "url": url_for('name')},
     ]
 
     return dict(navbar = nav)
 
 
+
+#Regular pages
 
 @app.route("/")
 def index():
@@ -49,8 +61,52 @@ def practical_info():
 def FAQ():
     return render_template('FAQ.html')
 
-if __name__ == "__main__":
-    app.run
+@app.route('/user/<username>')
+def user(username):
+    return render_template("user.html",username=username) 
+
+@app.route('/name', methods=['GET', 'POST'])
+def name():
+    name = None
+    email = None
+    password = None
+    form = forms.UserForm()
+    print("Test form",file=sys.stderr)
+
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = ''
+
+        #email = form.email.data
+        #form.email.data = ''
+
+        #password = form.password.data
+        #form.password.data = ''
+        
+        print("Name: "+name,file=sys.stderr)
+
+    return render_template('name.html',
+        name = name,
+        #email = email,
+        #password = password,
+        form = form)
+
+
+
+
+#Error pages
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('500.html'), 500
+
+
+#if __name__ == "__main__":
+#    app.run
 
 #if __name__ == "__main__":
 #    app.run(host="0.0.0.0")
