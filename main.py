@@ -77,18 +77,21 @@ def name():
         name = form.name.data
         form.name.data = ''
 
-        #email = form.email.data
-        #form.email.data = ''
+        email = form.email.data
+        form.email.data = ''
 
-        #password = form.password.data
-        #form.password.data = ''
+        password = form.password.data
+        form.password.data = ''
         
-        print("Name: "+name,file=sys.stderr)
+        print("Name: "+name,
+              "\nEmail: "+email,
+              "\nPassword: "+password,
+              file=sys.stderr)
 
     return render_template('name.html',
         name = name,
-        #email = email,
-        #password = password,
+        email = email,
+        password = password,
         form = form)
 
 
