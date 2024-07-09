@@ -67,32 +67,42 @@ def user(username):
 
 @app.route('/name', methods=['GET', 'POST'])
 def name():
-    name = None
+    firstName = None
+    lastName = None
     email = None
+    validateEmail = None
     password = None
     form = forms.UserForm()
     print("Test form",file=sys.stderr)
 
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ''
+        firstName = form.firstName.data
+        form.firstName.data = ''
+        
+        lastName = form.lastName.data
+        form.lastName.data = ''
 
         email = form.email.data
         form.email.data = ''
 
+        validateEmail = form.validateEmail.data
+        form.validateEmail.data = ''
+
         password = form.password.data
         form.password.data = ''
         
-        print("Name: "+name,
-              "\nEmail: "+email,
-              "\nPassword: "+password,
-              file=sys.stderr)
-
+        print(f'''Name: {firstName} {lastName}
+            Email: {email}
+            Password: {password}''',
+        file=sys.stderr)
+        
     return render_template('name.html',
-        name = name,
-        email = email,
-        password = password,
-        form = form)
+    firstName = firstName,
+    lastName = lastName,
+    email = email,
+    validateEmail = validateEmail,
+    password = password,
+    form = form)
 
 
 
