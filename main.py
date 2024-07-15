@@ -72,37 +72,78 @@ def name():
     email = None
     validateEmail = None
     password = None
+    validatePassword = None
+    phone = None
+    mensaID = None
+    birthday = None
+    snoring = None
+    diet = None
+    otherdiet = None
+    country = None
     form = forms.UserForm()
-    print("Test form",file=sys.stderr)
 
     if form.validate_on_submit():
+
         firstName = form.firstName.data
-        form.firstName.data = ''
-        
         lastName = form.lastName.data
-        form.lastName.data = ''
-
         email = form.email.data
-        form.email.data = ''
-
         validateEmail = form.validateEmail.data
-        form.validateEmail.data = ''
-
         password = form.password.data
+        validatePassword = form.validatePassword.data
+        phone = form.phone.data
+        mensaID = form.mensaID.data
+        birthday = form.birthday.data
+        snoring = form.snoring.data
+        diet = form.diet.data
+        otherdiet = form.otherdiet.data
+        country = form.country.data
+
+        form.firstName.data = ''
+        form.lastName.data = ''
+        form.email.data = ''
+        form.validateEmail.data = ''
         form.password.data = ''
+        form.validatePassword.data = ''
+        form.phone.data = ''
+        form.mensaID.data = ''
+        form.birthday.data = ''
+        form.snoring.data = ''
+        form.diet.data = ''
+        form.otherdiet.data = ''
+        form.country.data = ''
         
-        print(f'''Name: {firstName} {lastName}
+        
+        print(f'''
+            Name: {firstName} {lastName}
             Email: {email}
-            Password: {password}''',
+            Password: {password}
+            Phone number: {phone}
+            mensaID: {mensaID}
+            Date of Birth: {birthday}
+            Snoring: {snoring}
+            Diet: {diet}:{otherdiet}
+            Country: {country}''',
         file=sys.stderr)
         
-    return render_template('name.html',
-    firstName = firstName,
-    lastName = lastName,
-    email = email,
-    validateEmail = validateEmail,
-    password = password,
-    form = form)
+        return render_template('name.html',
+        firstName = firstName,
+        lastName = lastName,
+        email = email,
+        validateEmail = validateEmail,
+        password = password,
+        validatePassword = validatePassword,
+        phone = phone,
+        mensaID = mensaID,
+        birthday = birthday,
+        snoring = snoring,
+        diet = diet,
+        otherdiet = otherdiet,
+        country = country,
+        form = form)
+    else:
+        return render_template('name.html', form=form)
+        
+
 
 
 

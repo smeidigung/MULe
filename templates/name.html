@@ -29,6 +29,37 @@
         {{ form.password.label() }}
         {{ form.password() }}
         <br>
+        {{ form.validatePassword.label() }}
+        {{ form.validatePassword() }}
+        <br>
+        {{ form.phone.label() }}
+        {{ form.phone() }}
+        {% for error in form.phone.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br>
+        {{ form.mensaID.label() }}
+        {{ form.mensaID() }}
+        {% for error in form.mensaID.errors %}
+            {{ error }}
+        {% endfor %}
+        <br>
+        {{ form.birthday.label() }}
+        {{ form.birthday() }}
+        <br>
+        {{ form.snoring.label() }}
+        {{ form.snoring() }}
+        <br>
+        {{ form.diet.label() }}
+        {{ form.diet() }}
+        <br>        
+        {{ form.otherdiet.label() }}
+        {{ form.otherdiet() }}
+        <br>
+        {{ form.country.label() }}
+        {{ form.country() }}
+        <br>
             {{ form.submit() }}
     </form>
 
