@@ -19,6 +19,6 @@ class UserForm(FlaskForm):
     otherdiet = TextAreaField("Other:")
     country = CountrySelectField("Country of residence:", default='DK', validators=[InputRequired()])
     password = PasswordField("Write Your Password:",validators=[InputRequired(),Length(min=10)])
-    validatePassword = PasswordField("Confirm Your Password:",validators=[InputRequired(),EqualTo(fieldname="password")])
+    validatePassword = PasswordField("Confirm Your Password:",validators=[InputRequired(),EqualTo(fieldname="password",message="Passwords must be equal")])
 
     submit = SubmitField("Sign Up")
