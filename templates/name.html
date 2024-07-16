@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>Account</title>
+
+
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    
+{% endfor %}
+
+{% if firstName %}
+    <h1>Hello {{ firstName }} {{ lastName}}</h1>
+{% else %}
+    <h1>What's your name?</h1>
+    <br/>
+    <form action="" method="POST">
+		{{ form.hidden_tag() }}
+
+        {{ form.firstName.label() }}
+        {{ form.firstName() }}
+        <br>
+        {{ form.lastName.label() }}
+        {{ form.lastName() }}
+        <br>
+        <br>
+        {{ form.email.label() }}
+        {{ form.email() }}
+        <br>
+        {{ form.validateEmail.label() }}
+        {{ form.validateEmail() }}
+		{% for error in form.validateEmail.errors %}
+            {{ error }}
+        {% endfor %}
+        <br>
+        {{ form.password.label() }}
+        {{ form.password() }}
+        <br>
+        {{ form.validatePassword.label() }}
+        {{ form.validatePassword() }}
+        {% for error in form.validatePassword.errors %}
+            {{ error }}
+        {% endfor %}
+        <br>
+        {{ form.phone.label() }}
+        {{ form.phone() }}
+        {% for error in form.phone.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br>
+        {{ form.mensaID.label() }}
+        {{ form.mensaID() }}
+        {% for error in form.mensaID.errors %}
+            {{ error }}
+        {% endfor %}
+        <br>
+        {{ form.birthday.label() }}
+        {{ form.birthday() }}
+        <br>
+        {{ form.snoring.label() }}
+        {{ form.snoring() }}
+        <br>
+        {{ form.diet.label() }}
+        {{ form.diet() }}
+        <br>        
+        {{ form.otherdiet.label() }}
+        {{ form.otherdiet() }}
+        <br>
+        {{ form.country.label() }}
+        {{ form.country() }}
+        <br>
+            {{ form.submit() }}
+    </form>
+
+ {% endif %}
+
+{% endblock %}
