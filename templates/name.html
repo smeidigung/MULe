@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <title>Account</title>
+
+{% for message in get_flashed_messages() %}
+    {{message}}
+{% endfor %}
+
 {% if firstName %}
     <h1>Hello {{ firstName }} {{ lastName}}</h1>
 {% else %}
@@ -31,6 +37,9 @@
         <br>
         {{ form.validatePassword.label() }}
         {{ form.validatePassword() }}
+        {% for error in form.validatePassword.errors %}
+            {{ error }}
+        {% endfor %}
         <br>
         {{ form.phone.label() }}
         {{ form.phone() }}

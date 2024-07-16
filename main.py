@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, flash
 import secret
 import forms
 import sys
@@ -83,6 +83,8 @@ def name():
     form = forms.UserForm()
 
     if form.validate_on_submit():
+        
+        flash("Form submitted successfully")
 
         firstName = form.firstName.data
         lastName = form.lastName.data
@@ -141,6 +143,7 @@ def name():
         country = country,
         form = form)
     else:
+        flash("Error in submission")
         return render_template('name.html', form=form)
         
 
